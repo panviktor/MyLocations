@@ -106,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1618" y="-321"/>
+            <point key="canvasLocation" x="1545" y="-321"/>
         </scene>
         <!--Locations-->
         <scene sceneID="nPX-ST-w5V">
@@ -117,7 +117,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="58" id="ayD-Mv-OPb">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="58" id="ayD-Mv-OPb" customClass="LocationCell" customModule="MyLocations" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="58"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ayD-Mv-OPb" id="Uw8-OA-AcQ">
@@ -156,6 +156,11 @@
                                         <constraint firstItem="BxT-8W-8xZ" firstAttribute="leading" secondItem="Uw8-OA-AcQ" secondAttribute="leading" constant="16" id="sg6-Vr-zZ1"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="addressLabel" destination="Qnh-ab-7EZ" id="R81-Go-aLp"/>
+                                    <outlet property="descriptionLabel" destination="UI6-uB-tWy" id="s9u-vJ-z7z"/>
+                                    <segue destination="zYt-u2-g7W" kind="show" identifier="EditLocation" id="IGk-kl-E4j"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -407,7 +412,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRv-n9-l9f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2474" y="-321"/>
+            <point key="canvasLocation" x="2401" y="-309"/>
         </scene>
         <!--Category Picker View Controller-->
         <scene sceneID="66n-Nz-yHx">
@@ -492,4 +497,7 @@
     <resources>
         <image name="first" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="IGk-kl-E4j"/>
+    </inferredMetricsTieBreakers>
 </document>
