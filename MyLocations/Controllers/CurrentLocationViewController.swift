@@ -10,7 +10,12 @@ import UIKit
 import CoreLocation
 import CoreData
 
+import UIKit
+import CoreLocation
+import CoreData
+
 class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate {
+    //MARK: - Outlets
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
@@ -18,6 +23,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     @IBOutlet weak var tagButton: UIButton!
     @IBOutlet weak var getButton: UIButton!
     
+    //MARK: - Properties
     let locationManager = CLLocationManager()
     var location: CLLocation?
     var updatingLocation = false
@@ -27,10 +33,9 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     var performingReverseGeocoding = false
     var lastGeocodingError: Error?
     var timer: Timer?
-    
     var managedObjectContext: NSManagedObjectContext!
     
-    //MARK: - iewController Methods
+    //MARK: - TableView Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLabels()
@@ -42,7 +47,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+        super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
     }
     
@@ -69,6 +74,16 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             startLocationManager()
         }
         updateLabels()
+    }
+    
+    // MARK:- Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TagLocation" {
+            let controller = segue.destination as! LocationDetailsViewController
+            controller.coordinate = location!.coordinate
+            controller.placemark = placemark
+            controller.managedObjectContext = managedObjectContext
+        }
     }
     
     // MARK:- Helper Methods
@@ -241,18 +256,6 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
                 stopLocationManager()
                 updateLabels()
             }
-        }
-    }
-    
-    
-    //MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "TagLocation" {
-            let controller = segue.destination as! LocationDetailsViewController
-            controller.coordinate = location!.coordinate
-            controller.placemark = placemark
-            
-            controller.managedObjectContext = managedObjectContext
         }
     }
 }

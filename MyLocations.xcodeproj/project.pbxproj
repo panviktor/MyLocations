@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		779CEC50236A3436001E9E2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779CEC4F236A3436001E9E2D /* AppDelegate.swift */; };
 		779CEC54236A3436001E9E2D /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779CEC53236A3436001E9E2D /* CurrentLocationViewController.swift */; };
-		779CEC56236A3436001E9E2D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779CEC55236A3436001E9E2D /* SecondViewController.swift */; };
 		779CEC5B236A3439001E9E2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 779CEC5A236A3439001E9E2D /* Assets.xcassets */; };
 		779CEC5E236A3439001E9E2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 779CEC5C236A3439001E9E2D /* LaunchScreen.storyboard */; };
 		779ED409236DAA76005D8B00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 779ED408236DAA76005D8B00 /* Main.storyboard */; };
@@ -17,16 +16,16 @@
 		779ED40D236EF5BA005D8B00 /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779ED40C236EF5BA005D8B00 /* CategoryPickerViewController.swift */; };
 		779ED40F236F0D49005D8B00 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779ED40E236F0D49005D8B00 /* HudView.swift */; };
 		779ED411236F1EAA005D8B00 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779ED410236F1EAA005D8B00 /* Functions.swift */; };
-		779ED415236F32B4005D8B00 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 779ED413236F32B4005D8B00 /* DataModel.xcdatamodeld */; };
 		779ED419236F3674005D8B00 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779ED417236F3674005D8B00 /* Location+CoreDataClass.swift */; };
 		779ED41A236F3674005D8B00 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779ED418236F3674005D8B00 /* Location+CoreDataProperties.swift */; };
+		77A49EEA2370522F009170F9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A49EE92370522F009170F9 /* LocationsViewController.swift */; };
+		77B3796B23703F7A0055B7D6 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77B3796923703F7A0055B7D6 /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		779CEC4C236A3436001E9E2D /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		779CEC4F236A3436001E9E2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		779CEC53236A3436001E9E2D /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
-		779CEC55236A3436001E9E2D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		779CEC5A236A3439001E9E2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		779CEC5D236A3439001E9E2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		779CEC5F236A3439001E9E2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,9 +34,10 @@
 		779ED40C236EF5BA005D8B00 /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
 		779ED40E236F0D49005D8B00 /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		779ED410236F1EAA005D8B00 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
-		779ED414236F32B4005D8B00 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		779ED417236F3674005D8B00 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		779ED418236F3674005D8B00 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		77A49EE92370522F009170F9 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		77B3796A23703F7A0055B7D6 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 				779CEC53236A3436001E9E2D /* CurrentLocationViewController.swift */,
 				779ED40A236E37CE005D8B00 /* LocationDetailsViewController.swift */,
 				779ED40C236EF5BA005D8B00 /* CategoryPickerViewController.swift */,
-				779CEC55236A3436001E9E2D /* SecondViewController.swift */,
+				77A49EE92370522F009170F9 /* LocationsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -137,9 +137,9 @@
 		779ED416236F32BF005D8B00 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				779ED413236F32B4005D8B00 /* DataModel.xcdatamodeld */,
 				779ED417236F3674005D8B00 /* Location+CoreDataClass.swift */,
 				779ED418236F3674005D8B00 /* Location+CoreDataProperties.swift */,
+				77B3796923703F7A0055B7D6 /* DataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,12 +216,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				779ED40D236EF5BA005D8B00 /* CategoryPickerViewController.swift in Sources */,
-				779CEC56236A3436001E9E2D /* SecondViewController.swift in Sources */,
+				77A49EEA2370522F009170F9 /* LocationsViewController.swift in Sources */,
+				77B3796B23703F7A0055B7D6 /* DataModel.xcdatamodeld in Sources */,
 				779ED41A236F3674005D8B00 /* Location+CoreDataProperties.swift in Sources */,
 				779CEC54236A3436001E9E2D /* CurrentLocationViewController.swift in Sources */,
 				779ED411236F1EAA005D8B00 /* Functions.swift in Sources */,
 				779CEC50236A3436001E9E2D /* AppDelegate.swift in Sources */,
-				779ED415236F32B4005D8B00 /* DataModel.xcdatamodeld in Sources */,
 				779ED40F236F0D49005D8B00 /* HudView.swift in Sources */,
 				779ED419236F3674005D8B00 /* Location+CoreDataClass.swift in Sources */,
 				779ED40B236E37CE005D8B00 /* LocationDetailsViewController.swift in Sources */,
@@ -418,14 +418,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		779ED413236F32B4005D8B00 /* DataModel.xcdatamodeld */ = {
+		77B3796923703F7A0055B7D6 /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				779ED414236F32B4005D8B00 /* DataModel.xcdatamodel */,
+				77B3796A23703F7A0055B7D6 /* DataModel.xcdatamodel */,
 			);
-			currentVersion = 779ED414236F32B4005D8B00 /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
-			sourceTree = "<group>";
+			currentVersion = 77B3796A23703F7A0055B7D6 /* DataModel.xcdatamodel */;
+			name = DataModel.xcdatamodeld;
+			path = "/Users/viktor/Desktop/Book/iOS_Apprentice_Early_Access_v8.0.0/38-my-locations/Source Code/38-Saving Locations/chapter-38-final/MyLocations/DataModel.xcdatamodeld";
+			sourceTree = "<absolute>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */

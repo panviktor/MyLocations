@@ -19,24 +19,41 @@ private let dateFormatter: DateFormatter = {
 
 class LocationDetailsViewController: UITableViewController {
     //MARK: - Outlets
-    @IBOutlet var descriptionTextView: UITextView!
-    @IBOutlet var categoryLabel: UILabel!
-    @IBOutlet var latitudeLabel: UILabel!
-    @IBOutlet var longitudeLabel: UILabel!
-    @IBOutlet var addressLabel: UILabel!
-    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var latitudeLabel: UILabel!
+    @IBOutlet weak var longitudeLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     //MARK: - Properties
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var placemark: CLPlacemark?
     var categoryName = "No Category"
     var managedObjectContext: NSManagedObjectContext!
+    var date = Date()
+    var descriptionText = ""
+    
+    var locationToEdit: Location? {
+        didSet {
+            if let location = locationToEdit {
+                descriptionText = location.locationDescription
+                categoryName = location.category
+                date = location.date
+                coordinate = CLLocationCoordinate2DMake(location.latitude, location.longitude)
+                placemark = location.placemark
+            }
+        }
+    }
     
     //MARK: - TableView Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        if locationToEdit != nil {
+            title = "Edit Location"
+        }
         
-        descriptionTextView.text = ""
+        descriptionTextView.text = descriptionText
         categoryLabel.text = categoryName
         
         latitudeLabel.text = String(format: "%.8f", coordinate.latitude)
@@ -47,46 +64,45 @@ class LocationDetailsViewController: UITableViewController {
         } else {
             addressLabel.text = "No Address Found"
         }
-        dateLabel.text = format(date: Date())
-        
-        //Hide keyboard
-        
+        dateLabel.text = format(date: date)
+        // Hide keyboard
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         gestureRecognizer.cancelsTouchesInView = false
         tableView.addGestureRecognizer(gestureRecognizer)
     }
     
-    @objc func hideKeyboard(_ gestureRecognizer: UITapGestureRecognizer) {
-        let point = gestureRecognizer.location(in: tableView)
-        let indexPath = tableView.indexPathForRow(at: point)
+    // MARK:- Actions
+    @IBAction func done() {
+        let hudView = HudView.hud(inView: navigationController!.view, animated: true)
         
-        if indexPath != nil && indexPath!.section == 0 && indexPath!.row == 0 {
-            return
-        }
-        descriptionTextView.resignFirstResponder()
-    }
-    
-    //MARK: - TableView Delegate Methods
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if indexPath.section == 0 || indexPath.section == 1 {
-            return indexPath
+        let location: Location
+        if let temp = locationToEdit {
+            hudView.text = "Updated"
+            location = temp
         } else {
-            return nil
+            hudView.text = "Tagged"
+            location = Location(context: managedObjectContext)
+        }
+        
+        location.locationDescription = descriptionTextView.text
+        location.category = categoryName
+        location.latitude = coordinate.latitude
+        location.longitude = coordinate.longitude
+        location.date = date
+        location.placemark = placemark
+        do {
+            try managedObjectContext.save()
+            afterDelay(0.6) {
+                hudView.hide()
+                self.navigationController?.popViewController(animated: true)
+            }
+        } catch {
+            fatalCoreDataError(error)
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 && indexPath.row == 0 {
-            descriptionTextView.becomeFirstResponder()
-        }
-    }
-    
-    //MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PickCategory" {
-            let controller = segue.destination as! CategoryPickerViewController
-            controller.selectedCategoryName =  categoryName
-        }
+    @IBAction func cancel() {
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func categoryPickerDidPickCategory(_ segue: UIStoryboardSegue) {
@@ -95,26 +111,19 @@ class LocationDetailsViewController: UITableViewController {
         categoryLabel.text = categoryName
     }
     
-    //MARK: - Actions
-    @IBAction func done() {
-        let hudView = HudView.hud(inView: navigationController!.view, animated: true)
-        hudView.text = "Tagged"
-
-        afterDelay(0.6) {
-            hudView.hide()
-            self.navigationController?.popViewController(animated: true)
+    // MARK:- Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PickCategory" {
+            let controller = segue.destination as! CategoryPickerViewController
+            controller.selectedCategoryName = categoryName
         }
     }
     
-    @IBAction func cancel() {
-        navigationController?.popViewController(animated: true)
-    }
-}
-
-extension LocationDetailsViewController {
+    // MARK:- Helper Methods
     func string(from placemark: CLPlacemark) -> String {
         var text = ""
-        if let s  = placemark.subThoroughfare {
+        
+        if let s = placemark.subThoroughfare {
             text += s + " "
         }
         if let s = placemark.thoroughfare {
@@ -124,7 +133,7 @@ extension LocationDetailsViewController {
             text += s + ", "
         }
         if let s = placemark.administrativeArea {
-            text += s + ", "
+            text += s + " "
         }
         if let s = placemark.postalCode {
             text += s + ", "
@@ -137,5 +146,30 @@ extension LocationDetailsViewController {
     
     func format(date: Date) -> String {
         return dateFormatter.string(from: date)
+    }
+    
+    @objc func hideKeyboard(_ gestureRecognizer: UIGestureRecognizer) {
+        let point = gestureRecognizer.location(in: tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        if indexPath != nil && indexPath!.section == 0 && indexPath!.row == 0 {
+            return
+        }
+        descriptionTextView.resignFirstResponder()
+    }
+    
+    // MARK:- Table View Delegates
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section == 0 || indexPath.section == 1 {
+            return indexPath
+        } else {
+            return nil
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            descriptionTextView.becomeFirstResponder()
+        }
     }
 }
