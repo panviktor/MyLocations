@@ -1,5 +1,5 @@
 //
-//  Extensions+LocationsViewController.swift
+//  Extension+LocationsViewController.swift
 //  MyLocations
 //
 //  Created by Виктор on 04.11.2019.
