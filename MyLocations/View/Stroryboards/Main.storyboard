@@ -106,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1545" y="-321"/>
+            <point key="canvasLocation" x="1572" y="-321"/>
         </scene>
         <!--Locations-->
         <scene sceneID="nPX-ST-w5V">
@@ -130,7 +130,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BxT-8W-8xZ">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BxT-8W-8xZ">
                                             <rect key="frame" x="16" y="2" width="52" height="52"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="52" id="1zI-pZ-ztb"/>
@@ -159,6 +159,7 @@
                                 <connections>
                                     <outlet property="addressLabel" destination="Qnh-ab-7EZ" id="R81-Go-aLp"/>
                                     <outlet property="descriptionLabel" destination="UI6-uB-tWy" id="s9u-vJ-z7z"/>
+                                    <outlet property="photoImageView" destination="BxT-8W-8xZ" id="aYn-Cx-5pu"/>
                                     <segue destination="zYt-u2-g7W" kind="show" identifier="EditLocation" id="IGk-kl-E4j"/>
                                 </connections>
                             </tableViewCell>
@@ -172,7 +173,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YJ4-yU-eUF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1572" y="447.52623688155927"/>
+            <point key="canvasLocation" x="1494" y="448"/>
         </scene>
         <!--Map-->
         <scene sceneID="p24-Ff-gyI">
@@ -181,6 +182,9 @@
                     <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="XEV-Z7-wE8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <connections>
+                            <outlet property="delegate" destination="g0E-Nl-g3o" id="5ly-ds-rVT"/>
+                        </connections>
                     </mapView>
                     <navigationItem key="navigationItem" title="Map" id="U0E-Ez-5kb">
                         <barButtonItem key="leftBarButtonItem" title="Locations" id="2g9-gV-r4T">
@@ -196,11 +200,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="XEV-Z7-wE8" id="tV6-Re-ctz"/>
+                        <segue destination="zYt-u2-g7W" kind="show" identifier="EditLocation" id="x1b-Ad-opW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8P-4c-iYw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="748" y="1237"/>
+            <point key="canvasLocation" x="1494" y="1223"/>
         </scene>
         <!--Locations-->
         <scene sceneID="zmg-in-aoO">
@@ -297,10 +302,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5BG-f2-Jft">
+                                                    <rect key="frame" x="96.5" y="11" width="243.5" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="5e9-Lr-Nzh"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="5BG-f2-Jft" firstAttribute="top" secondItem="C7D-tN-ByA" secondAttribute="topMargin" id="TQv-kw-31g"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="5BG-f2-Jft" secondAttribute="bottom" id="Yex-Gw-sep"/>
                                                 <constraint firstItem="yED-AY-2Ho" firstAttribute="leading" secondItem="C7D-tN-ByA" secondAttribute="leadingMargin" id="ZG4-FX-vNe"/>
+                                                <constraint firstItem="5BG-f2-Jft" firstAttribute="leading" secondItem="yED-AY-2Ho" secondAttribute="trailing" id="lEN-FP-fgU"/>
                                                 <constraint firstItem="yED-AY-2Ho" firstAttribute="centerY" secondItem="C7D-tN-ByA" secondAttribute="centerY" id="nEU-h1-WRZ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5BG-f2-Jft" secondAttribute="trailing" id="nIL-z2-RT6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -430,17 +445,20 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addPhotoLabel" destination="yED-AY-2Ho" id="ESj-hO-0Tb"/>
                         <outlet property="addressLabel" destination="EKh-v8-e7A" id="kNa-cd-hOs"/>
                         <outlet property="categoryLabel" destination="JPN-Vj-Dw2" id="Ekm-RA-Xxb"/>
                         <outlet property="dateLabel" destination="Va0-5Z-RPy" id="u96-jP-VZy"/>
                         <outlet property="descriptionTextView" destination="Upp-5d-iJ9" id="0rs-YX-uNW"/>
+                        <outlet property="imageHeight" destination="5e9-Lr-Nzh" id="dhE-fM-oct"/>
+                        <outlet property="imageView" destination="5BG-f2-Jft" id="EU7-j4-ofE"/>
                         <outlet property="latitudeLabel" destination="T17-1d-0qu" id="CgZ-qW-tzW"/>
                         <outlet property="longitudeLabel" destination="Unp-J5-NTq" id="TND-EC-r6f"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRv-n9-l9f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2414" y="-308"/>
+            <point key="canvasLocation" x="2405.5999999999999" y="-321.58920539730138"/>
         </scene>
         <!--Category Picker View Controller-->
         <scene sceneID="66n-Nz-yHx">
@@ -501,7 +519,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-89" y="-23"/>
         </scene>
         <!--Tag-->
         <scene sceneID="cU5-Na-VCq">
@@ -534,12 +552,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="g0E-Nl-g3o" kind="relationship" relationship="rootViewController" id="NIK-EK-LRV"/>
+                        <segue destination="g0E-Nl-g3o" kind="relationship" relationship="rootViewController" id="9B7-59-toh"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahN-AZ-c5W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-28" y="1238"/>
+            <point key="canvasLocation" x="748" y="1223"/>
         </scene>
     </scenes>
     <resources>

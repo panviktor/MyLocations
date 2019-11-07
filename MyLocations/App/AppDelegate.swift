@@ -11,6 +11,7 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    //MARK: - Properties
     var window: UIWindow?
     
     lazy var persistentContainer: NSPersistentContainer = {
@@ -26,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     lazy var managedObjectContext: NSManagedObjectContext = persistentContainer.viewContext
     
+    //MARK: - App Delegate Methods
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let tabController = window!.rootViewController as! UITabBarController
         if let tabViewControllers = tabController.viewControllers {
@@ -33,11 +35,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var navController = tabViewControllers[0] as! UINavigationController
             let controller1 = navController.viewControllers.first as! CurrentLocationViewController
             controller1.managedObjectContext = managedObjectContext
+            
             // Second tab
             navController = tabViewControllers[1] as! UINavigationController
             let controller2 = navController.viewControllers.first as! LocationsViewController
             controller2.managedObjectContext = managedObjectContext
             let _ = controller2.view
+            
+            // Third tab
+            navController = tabViewControllers[2] as! UINavigationController
+            let controller3 = navController.viewControllers.first as! MapViewController
+            controller3.managedObjectContext = managedObjectContext
+            
         }
         print(applicationDocumentsDirectory)
         listenForFatalCoreDataNotifications()

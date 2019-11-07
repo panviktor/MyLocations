@@ -25,6 +25,8 @@
 		77A49EEC23706029009170F9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A49EEB23706029009170F9 /* LocationCell.swift */; };
 		77A49EF0237081B0009170F9 /* Extension+LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A49EEF237081B0009170F9 /* Extension+LocationsViewController.swift */; };
 		77B3796B23703F7A0055B7D6 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77B3796923703F7A0055B7D6 /* DataModel.xcdatamodeld */; };
+		77E5948B2372F55000AE5789 /* Extension+LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5948A2372F55000AE5789 /* Extension+LocationDetailsViewController.swift */; };
+		77E5948D2374492A00AE5789 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5948C2374492A00AE5789 /* Extension+UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		77A49EEB23706029009170F9 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		77A49EEF237081B0009170F9 /* Extension+LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+LocationsViewController.swift"; sourceTree = "<group>"; };
 		77B3796A23703F7A0055B7D6 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		77E5948A2372F55000AE5789 /* Extension+LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+LocationDetailsViewController.swift"; sourceTree = "<group>"; };
+		77E5948C2374492A00AE5789 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 				779ED416236F32BF005D8B00 /* Model */,
 				779CEC69236A3B64001E9E2D /* View */,
 				779CEC65236A3AF9001E9E2D /* Controllers */,
+				77E5948E2374493100AE5789 /* Extension+UIKit */,
 				779CEC68236A3B4A001E9E2D /* Resources */,
 			);
 			path = MyLocations;
@@ -105,6 +110,7 @@
 			children = (
 				779CEC53236A3436001E9E2D /* CurrentLocationViewController.swift */,
 				779ED40A236E37CE005D8B00 /* LocationDetailsViewController.swift */,
+				77E5948A2372F55000AE5789 /* Extension+LocationDetailsViewController.swift */,
 				779ED40C236EF5BA005D8B00 /* CategoryPickerViewController.swift */,
 				77A49EE92370522F009170F9 /* LocationsViewController.swift */,
 				77A49EEF237081B0009170F9 /* Extension+LocationsViewController.swift */,
@@ -184,6 +190,14 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
+		77E5948E2374493100AE5789 /* Extension+UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				77E5948C2374492A00AE5789 /* Extension+UIImage.swift */,
+			);
+			path = "Extension+UIKit";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -259,12 +273,14 @@
 				77A49EEA2370522F009170F9 /* LocationsViewController.swift in Sources */,
 				77B3796B23703F7A0055B7D6 /* DataModel.xcdatamodeld in Sources */,
 				779ED41A236F3674005D8B00 /* Location+CoreDataProperties.swift in Sources */,
+				77E5948B2372F55000AE5789 /* Extension+LocationDetailsViewController.swift in Sources */,
 				779CEC54236A3436001E9E2D /* CurrentLocationViewController.swift in Sources */,
 				779ED411236F1EAA005D8B00 /* Functions.swift in Sources */,
 				7796FA4A2370CC5600E93DDD /* MapViewController.swift in Sources */,
 				77A49EEC23706029009170F9 /* LocationCell.swift in Sources */,
 				779CEC50236A3436001E9E2D /* AppDelegate.swift in Sources */,
 				779ED40F236F0D49005D8B00 /* HudView.swift in Sources */,
+				77E5948D2374492A00AE5789 /* Extension+UIImage.swift in Sources */,
 				77A49EF0237081B0009170F9 /* Extension+LocationsViewController.swift in Sources */,
 				7796FA4C2370CEAC00E93DDD /* Extension+MapViewController.swift in Sources */,
 				779ED419236F3674005D8B00 /* Location+CoreDataClass.swift in Sources */,

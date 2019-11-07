@@ -9,7 +9,6 @@
 import UIKit
 
 class CategoryPickerViewController: UITableViewController {
-    
     //MARK: - Properties
     var selectedCategoryName = ""
     
