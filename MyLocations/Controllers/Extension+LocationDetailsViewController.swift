@@ -11,7 +11,8 @@ import UIKit
 extension LocationDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     //MARK: - Image Helper Methods
     func takePhotoWithCamera() {
-        let imagePicker = UIImagePickerController()
+        let imagePicker = MyImagePickerController()
+        imagePicker.view.tintColor = view.tintColor
         imagePicker.sourceType = .camera
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
@@ -27,11 +28,11 @@ extension LocationDetailsViewController: UIImagePickerControllerDelegate, UINavi
     }
     
     func pickPhoto() {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            showPhotoMenu()
-        } else {
-            choosePhotoFromLibrary()
-        }
+      if true || UIImagePickerController.isSourceTypeAvailable(.camera) {
+        showPhotoMenu()
+      } else {
+        choosePhotoFromLibrary()
+      }
     }
     
     func showPhotoMenu() {

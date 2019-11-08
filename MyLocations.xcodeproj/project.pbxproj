@@ -25,6 +25,10 @@
 		77A49EEC23706029009170F9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A49EEB23706029009170F9 /* LocationCell.swift */; };
 		77A49EF0237081B0009170F9 /* Extension+LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A49EEF237081B0009170F9 /* Extension+LocationsViewController.swift */; };
 		77B3796B23703F7A0055B7D6 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77B3796923703F7A0055B7D6 /* DataModel.xcdatamodeld */; };
+		77C072E423746F51009DF26A /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C072E323746F51009DF26A /* Extension+String.swift */; };
+		77C072E6237479A0009DF26A /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C072E5237479A0009DF26A /* MyTabBarController.swift */; };
+		77C072E823747AF0009DF26A /* MyImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C072E723747AF0009DF26A /* MyImagePickerController.swift */; };
+		77C072EA2375B9FF009DF26A /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 77C072E92375B9FF009DF26A /* Sound.caf */; };
 		77E5948B2372F55000AE5789 /* Extension+LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5948A2372F55000AE5789 /* Extension+LocationDetailsViewController.swift */; };
 		77E5948D2374492A00AE5789 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5948C2374492A00AE5789 /* Extension+UIImage.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +54,10 @@
 		77A49EEB23706029009170F9 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		77A49EEF237081B0009170F9 /* Extension+LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+LocationsViewController.swift"; sourceTree = "<group>"; };
 		77B3796A23703F7A0055B7D6 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		77C072E323746F51009DF26A /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
+		77C072E5237479A0009DF26A /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
+		77C072E723747AF0009DF26A /* MyImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImagePickerController.swift; sourceTree = "<group>"; };
+		77C072E92375B9FF009DF26A /* Sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sound.caf; sourceTree = "<group>"; };
 		77E5948A2372F55000AE5789 /* Extension+LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+LocationDetailsViewController.swift"; sourceTree = "<group>"; };
 		77E5948C2374492A00AE5789 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +149,7 @@
 		779CEC68236A3B4A001E9E2D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				77C072E92375B9FF009DF26A /* Sound.caf */,
 				779CEC5A236A3439001E9E2D /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -186,6 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				779ED40E236F0D49005D8B00 /* HudView.swift */,
+				77C072E5237479A0009DF26A /* MyTabBarController.swift */,
+				77C072E723747AF0009DF26A /* MyImagePickerController.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -194,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				77E5948C2374492A00AE5789 /* Extension+UIImage.swift */,
+				77C072E323746F51009DF26A /* Extension+String.swift */,
 			);
 			path = "Extension+UIKit";
 			sourceTree = "<group>";
@@ -258,6 +270,7 @@
 			files = (
 				779ED409236DAA76005D8B00 /* Main.storyboard in Resources */,
 				779CEC5E236A3439001E9E2D /* LaunchScreen.storyboard in Resources */,
+				77C072EA2375B9FF009DF26A /* Sound.caf in Resources */,
 				779CEC5B236A3439001E9E2D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,13 +285,16 @@
 				779ED40D236EF5BA005D8B00 /* CategoryPickerViewController.swift in Sources */,
 				77A49EEA2370522F009170F9 /* LocationsViewController.swift in Sources */,
 				77B3796B23703F7A0055B7D6 /* DataModel.xcdatamodeld in Sources */,
+				77C072E423746F51009DF26A /* Extension+String.swift in Sources */,
 				779ED41A236F3674005D8B00 /* Location+CoreDataProperties.swift in Sources */,
 				77E5948B2372F55000AE5789 /* Extension+LocationDetailsViewController.swift in Sources */,
 				779CEC54236A3436001E9E2D /* CurrentLocationViewController.swift in Sources */,
 				779ED411236F1EAA005D8B00 /* Functions.swift in Sources */,
 				7796FA4A2370CC5600E93DDD /* MapViewController.swift in Sources */,
+				77C072E823747AF0009DF26A /* MyImagePickerController.swift in Sources */,
 				77A49EEC23706029009170F9 /* LocationCell.swift in Sources */,
 				779CEC50236A3436001E9E2D /* AppDelegate.swift in Sources */,
+				77C072E6237479A0009DF26A /* MyTabBarController.swift in Sources */,
 				779ED40F236F0D49005D8B00 /* HudView.swift in Sources */,
 				77E5948D2374492A00AE5789 /* Extension+UIImage.swift in Sources */,
 				77A49EF0237081B0009170F9 /* Extension+LocationsViewController.swift in Sources */,
